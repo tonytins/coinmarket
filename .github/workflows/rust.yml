@@ -11,6 +11,9 @@ jobs:
         platform: [ubuntu-16.04, ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v1
+    - name: Get Etherscan key
+      env:
+        ETHSCAN: ${{ secrets.ETHSCAN }}
     - name: Update
       run: rustup update
     - name: Build
