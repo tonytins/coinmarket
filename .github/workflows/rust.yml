@@ -12,10 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Update
-      env:
-        ETHSCAN: ${{ secrets.ETHSCAN }}
       run: rustup update
     - name: Build
       run: cargo build --verbose
     - name: Run tests
+      env:
+        ETHSCAN: ${{ secrets.ETHSCAN }}
       run: cargo test --verbose
