@@ -5,10 +5,15 @@
 use crate::models::*;
 use reqwest::Error;
 use std::env;
+use std::path::Path;
 
 fn get_api_key() -> String {
-    dotenv::dotenv().expect("Error parsing .env file!");
+    if Path::new(".env").exists() {
+        dotenv::dotenv().expect("Error parsing .env file!");
+    }
+
     let api_key = env::var("ETHSCAN").expect("Failed to locate API key!");
+
     format!("&apikey={}", api_key)
 }
 
