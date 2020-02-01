@@ -1,0 +1,24 @@
+[package]
+edition = "2018"
+name = "coinmarket"
+version = "0.2.1"
+authors = ["Anthony Foxclaw"]
+description = "Coin Market is a simple library designed to make it easy get market information for cryptocurrencies from exchanges like Shapeshift."
+readme = "README.md"
+homepage = "https://github.com/tonytins/coinmarket"
+keywords = ["exchange", "cryptocurrency"]
+categories = ["api-bindings", "cryptography::cryptocurrencies"]
+license = "MIT"
+repository = "https://github.com/tonytins/coinmarket"
+
+[dependencies]
+reqwest = "0.9"
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"]}
+dotenv = "0.15"
+
+[badges]
+appveyor = { repository = "tonytins/coinmarket", branch = "master" }
+travis-ci = { repository = "tonytins/coinmarket", branch = "master" }
+codecov = { repository = "tonytins/coinmarket", branch = "master" }
+maintenance = { status = "passively-maintained" }
