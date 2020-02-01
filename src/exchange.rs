@@ -2,8 +2,8 @@
  * This project is licensed under the MIT license.
  * See the LICENSE file in the project root for more information.
  */
+use crate::models::{ExchangeLimit, MarketInfo, ValidateAddress};
 use reqwest::Error;
-use crate::models::{ExchangeLimit, ValidateAddress, MarketInfo};
 
 static API: &str = "https://shapeshift.io/";
 
@@ -16,8 +16,10 @@ pub struct CoinExchange {
 /// Some of the documentation provided comes from theirs.
 /// https://docs.shapeshift.io
 impl CoinExchange {
-    pub fn new<S: Into<String>>(from_coin: S, to_coin: S)
-        -> Self where S: Into<String> {
+    pub fn new<S: Into<String>>(from_coin: S, to_coin: S) -> Self
+    where
+        S: Into<String>,
+    {
         CoinExchange {
             from_coin: from_coin.into(),
             to_coin: to_coin.into(),
@@ -27,7 +29,7 @@ impl CoinExchange {
     /// This allows the user to verify that their receiving address is a valid
     /// address according to a given wallet daemon. If isValid returns true, this
     /// address is valid according to the coin daemon indicated by the currency symbol.
-     /// ```rust
+    /// ```rust
     /// extern crate coinmarket;
     /// use coinmarket::exchange::CoinExchange;
     ///
@@ -50,10 +52,16 @@ impl CoinExchange {
     ///      }
     /// }
     /// ```
-    pub fn is_valid_address<S: Into<String>>(&self, address: S)
-        -> Result<bool, Error> where S: Into<String> {
-        let request = format!("{}validateAddress/{}/{}", API, address.into(),
-                              self.to_coin.to_lowercase());
+    pub fn is_valid_address<S: Into<String>>(&self, address: S) -> Result<bool, Error>
+    where
+        S: Into<String>,
+    {
+        let request = format!(
+            "{}validateAddress/{}/{}",
+            API,
+            address.into(),
+            self.to_coin.to_lowercase()
+        );
         let mut response = reqwest::get(&request)?;
         let try_valid: ValidateAddress = response.json()?;
 
@@ -80,9 +88,12 @@ impl CoinExchange {
     /// }
     /// ```
     pub fn get_limit(&self) -> Result<ExchangeLimit, Error> {
-        let request = format!("{}limit/{}_{}", API,
-                              self.from_coin.to_lowercase(),
-                              self.to_coin.to_lowercase());
+        let request = format!(
+            "{}limit/{}_{}",
+            API,
+            self.from_coin.to_lowercase(),
+            self.to_coin.to_lowercase()
+        );
 
         let mut response = reqwest::get(&request)?;
         let limit: ExchangeLimit = response.json()?;
@@ -138,20 +149,16 @@ mod exchange_test {
     #[test]
     fn market_info_test() {
         let exchange = CoinExchange::new(FROM_COIN, TO_COIN);
-        let market_info = exchange.get_market_info()
-            .expect(ERR_MSG);
+        let market_info = exchange.get_market_info().expect(ERR_MSG);
 
         assert!(!market_info.rate.is_nan());
     }
 
     #[test]
-    fn ex_limit_test()
-    {
+    fn ex_limit_test() {
         let exchange = CoinExchange::new(FROM_COIN, TO_COIN);
-        let ex_limit = exchange.get_limit()
-            .expect(ERR_MSG);
+        let ex_limit = exchange.get_limit().expect(ERR_MSG);
 
         assert!(!ex_limit.limit.is_nan());
     }
 }
-

@@ -1,5 +1,5 @@
-# Created by https://www.gitignore.io/api/rust,linux,macos,backup,windows,executable,jetbrains+iml
-# Edit at https://www.gitignore.io/?templates=rust,linux,macos,backup,windows,executable,jetbrains+iml
+# Created by https://www.gitignore.io/api/rust,linux,macos,dotenv,backup,windows,executable,jetbrains+iml
+# Edit at https://www.gitignore.io/?templates=rust,linux,macos,dotenv,backup,windows,executable,jetbrains+iml
 
 ### Backup ###
 *.bak
@@ -7,6 +7,9 @@
 *.ori
 *.orig
 *.tmp
+
+### dotenv ###
+.env
 
 ### Executable ###
 *.app
@@ -159,4 +162,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/rust,linux,macos,backup,windows,executable,jetbrains+iml
+# End of https://www.gitignore.io/api/rust,linux,macos,dotenv,backup,windows,executable,jetbrains+iml

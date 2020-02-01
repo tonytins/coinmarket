@@ -2,15 +2,19 @@
  * This project is licensed under the MIT license.
  * See the LICENSE file in the project root for more information.
  */
-use serde::{Deserialize};
+use serde::export::fmt::Error;
+use serde::export::Formatter;
+use serde::{Deserialize, Serialize};
+use std::fmt;
+use std::path::Display;
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ValidateAddress {
     #[serde(rename(deserialize = "isvalid"))]
     pub is_valid: bool,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct MarketInfo {
     pub rate: f64,
     #[serde(rename(deserialize = "minerFee"))]
@@ -18,37 +22,37 @@ pub struct MarketInfo {
     pub limit: f64,
     pub minimum: f64,
     #[serde(rename(deserialize = "maxLimit"))]
-    pub max_limit: f64
+    pub max_limit: f64,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ExchangeLimit {
     pub limit: f64,
     pub minimum: f64,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Etherscan<T> {
     pub status: String,
     pub message: String,
     pub result: T,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct EthBalance {
     pub account: String,
     pub balance: String,
 }
 
-#[derive(Debug, Deserialize)]
-pub struct  EthPrice {
+#[derive(Serialize, Deserialize, Debug)]
+pub struct EthPrice {
     pub ethbtc: String,
     pub ethbtc_timestamp: String,
     pub ethusd: String,
-    pub ethusd_timestamp: String
+    pub ethusd_timestamp: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct EthTransaction {
     #[serde(rename = "blockNumber")]
     pub block_number: String,
@@ -78,7 +82,8 @@ pub struct EthTransaction {
     pub gas_used: String,
     pub confirmations: String,
 }
-#[derive(Debug, Deserialize)]
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct EthTransactionHash {
     #[serde(rename = "blockHash")]
     pub block_hash: String,
@@ -100,7 +105,7 @@ pub struct EthTransactionHash {
     pub s: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct EthTransactionnReceipt {
     #[serde(rename = "blockHash")]
     pub block_hash: String,
@@ -125,7 +130,7 @@ pub struct EthTransactionnReceipt {
     pub transaction_index: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Ethlog {
     pub address: String,
     pub topics: Vec<String>,
@@ -143,7 +148,7 @@ pub struct Ethlog {
     pub removed: bool,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct EthBlockByNumber {
     pub difficulty: String,
     #[serde(rename = "extraData")]
@@ -175,4 +180,11 @@ pub struct EthBlockByNumber {
     #[serde(rename = "transactionsRoot")]
     pub transactions_root: String,
     pub uncles: Vec<Option<serde_json::Value>>,
+}
+
+impl fmt::Display for EthPrice {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let to_json = serde_json::to_string(self);
+        write!(f, "{}", to_json.unwrap())
+    }
 }
