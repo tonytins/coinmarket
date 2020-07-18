@@ -2,7 +2,7 @@
 
 ![Rust](https://github.com/tonytins/coinmarket/workflows/Rust/badge.svg) [![Build Status](https://travis-ci.org/tonytins/coinmarket.svg?branch=master)](https://travis-ci.org/tonytins/coinmarket) [![Build status](https://ci.appveyor.com/api/projects/status/ffru6ik26j2b87ko?svg=true)](https://ci.appveyor.com/project/tonytins/coinmarket) [![codecov](https://codecov.io/gh/tonytins/coinmarket/branch/master/graph/badge.svg)](https://codecov.io/gh/tonytins/coinmarket)
 
-Coin Market is a simple library designed to make it easy get market or account information for cryptocurrencies by interacting with ShapeShift and Etherscan.io.
+Coin Market is a simple library designed to make it easy get market or account information for cryptocurrencies by interacting with ShapeShift and Etherscan APIs.
 
 ## Installation
 
@@ -19,9 +19,11 @@ coinmarket = { git = "https://github.com/tonytins/coinmarket" }
 ```
 
 ## Example
+
 ### Exchange information
+
 ```rust
- extern crate coinmarket;
+ extern crate coinmarket; // Rust 2015
  use coinmarket::exchange::CoinExchange;
 
  pub fn main() {
@@ -33,10 +35,12 @@ coinmarket = { git = "https://github.com/tonytins/coinmarket" }
      // Print the market rate
      println!("{}", market_info.rate);
 }
-``` 
+```
+
 ### Ethereum account balance
+
 ```rust
-extern crate coinmarket;
+extern crate coinmarket; // Rust 2015
 use coinmarket::ethereum::{Ethereum, EthNetworks};
 
 pub fn main() {
@@ -62,4 +66,6 @@ See also the list of [contributors](https://github.com/tonytins/isow/contributor
 
 ## License
 
-This project is licensed under the MIT license - see the [LICENSE](LICENSE) file for details.
+`coinmarket` is licensed under either of MIT or the Apache License, Version 2.0.
+
+See the [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) files in this repository for more information.

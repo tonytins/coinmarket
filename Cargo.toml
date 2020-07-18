@@ -8,7 +8,7 @@ readme = "README.md"
 homepage = "https://github.com/tonytins/coinmarket"
 keywords = ["exchange", "cryptocurrency"]
 categories = ["api-bindings", "cryptography::cryptocurrencies"]
-license = "MIT"
+license = "MIT OR Apache-2.0"
 repository = "https://github.com/tonytins/coinmarket"
 
 [dependencies]
