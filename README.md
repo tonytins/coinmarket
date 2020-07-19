@@ -1,6 +1,6 @@
 # Coin Market
 
-![Rust](https://github.com/tonytins/coinmarket/workflows/Rust/badge.svg) [![Build Status](https://travis-ci.org/tonytins/coinmarket.svg?branch=master)](https://travis-ci.org/tonytins/coinmarket) [![Build status](https://ci.appveyor.com/api/projects/status/ffru6ik26j2b87ko?svg=true)](https://ci.appveyor.com/project/tonytins/coinmarket) [![codecov](https://codecov.io/gh/tonytins/coinmarket/branch/master/graph/badge.svg)](https://codecov.io/gh/tonytins/coinmarket)
+![Rust](https://github.com/tonytins/coinmarket/workflows/Rust/badge.svg) [![Build Status](https://travis-ci.org/tonytins/coinmarket.svg?branch=master)](https://travis-ci.org/tonytins/coinmarket) [![codecov](https://codecov.io/gh/tonytins/coinmarket/branch/master/graph/badge.svg)](https://codecov.io/gh/tonytins/coinmarket) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 Coin Market is a simple library designed to make it easy get market or account information for cryptocurrencies by interacting with ShapeShift and Etherscan APIs.
 
