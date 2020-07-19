@@ -69,3 +69,7 @@ See also the list of [contributors](https://github.com/tonytins/isow/contributor
 `coinmarket` is licensed under either of MIT or the Apache License, Version 2.0.
 
 See the [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) files in this repository for more information.
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
