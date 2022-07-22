@@ -99,14 +99,14 @@ impl Web3 {
     ///
     /// }
     /// ```
-    pub fn get_last_price(&self) -> Result<EthPrice, Error> {
+    pub fn get_last_price(&self) -> Result<EvmPrice, Error> {
         let request = format!(
             "{}stats&action=ethprice{}",
             self.provider,
             get_api_key().as_str()
         );
         let mut response = reqwest::get(&request)?;
-        let last_price: Etherscan<EthPrice> = response.json()?;
+        let last_price: Etherscan<EvmPrice> = response.json()?;
         Ok(last_price.result)
     }
 
@@ -130,7 +130,7 @@ impl Web3 {
         address: S,
         start_block: i64,
         end_block: i64,
-    ) -> Result<Vec<EthTransaction>, Error>
+    ) -> Result<Vec<EvmTransaction>, Error>
     where
         S: Into<String>,
     {
@@ -144,7 +144,7 @@ impl Web3 {
         );
 
         let mut response = reqwest::get(&request)?;
-        let balance: Etherscan<Vec<EthTransaction>> = response.json()?;
+        let balance: Etherscan<Vec<EvmTransaction>> = response.json()?;
 
         Ok(balance.result)
     }

@@ -16,5 +16,5 @@ serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"]}
 dotenv = "0.15"
 
-# [badges]
-# maintenance = { status = "passively-maintained" }
+[badges]
+maintenance = { status = "deprecated" }

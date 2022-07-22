@@ -15,13 +15,13 @@ pub struct Etherscan<T> {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct EthBalance {
+pub struct EvmBalance {
     pub account: String,
     pub balance: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct EthPrice {
+pub struct EvmPrice {
     pub ethbtc: String,
     pub ethbtc_timestamp: String,
     pub ethusd: String,
@@ -29,7 +29,7 @@ pub struct EthPrice {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct EthTransaction {
+pub struct EvmTransaction {
     #[serde(rename = "blockNumber")]
     pub block_number: String,
     #[serde(rename = "timeStamp")]
@@ -60,7 +60,7 @@ pub struct EthTransaction {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct EthTransactionHash {
+pub struct EvmTransactionHash {
     #[serde(rename = "blockHash")]
     pub block_hash: String,
     #[serde(rename = "blockNumber")]
@@ -82,7 +82,7 @@ pub struct EthTransactionHash {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct EthTransactionnReceipt {
+pub struct EvmTransactionnReceipt {
     #[serde(rename = "blockHash")]
     pub block_hash: String,
     #[serde(rename = "blockNumber")]
@@ -95,7 +95,7 @@ pub struct EthTransactionnReceipt {
     #[serde(rename = "gasUsed")]
     pub gas_used: String,
     #[serde(rename = "Ethlogs")]
-    pub ethlogs: Vec<Ethlog>,
+    pub ethlogs: Vec<EvmLog>,
     #[serde(rename = "logsBloom")]
     pub logs_bloom: String,
     pub root: String,
@@ -107,7 +107,7 @@ pub struct EthTransactionnReceipt {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Ethlog {
+pub struct EvmLog {
     pub address: String,
     pub topics: Vec<String>,
     pub data: String,
@@ -125,7 +125,7 @@ pub struct Ethlog {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct EthBlockByNumber {
+pub struct EvmBlockByNumber {
     pub difficulty: String,
     #[serde(rename = "extraData")]
     pub extra_data: String,
@@ -158,7 +158,7 @@ pub struct EthBlockByNumber {
     pub uncles: Vec<Option<serde_json::Value>>,
 }
 
-impl fmt::Display for EthPrice {
+impl fmt::Display for EvmPrice {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let to_json = serde_json::to_string(self);
         write!(f, "{}", to_json.unwrap())
