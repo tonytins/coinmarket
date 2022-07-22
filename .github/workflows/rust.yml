@@ -4,18 +4,17 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ${{ matrix.platform }}
     strategy:
       matrix:
-        platform: [ubuntu-16.04, ubuntu-latest, windows-latest, macOS-latest]
+        platform: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
-    - uses: actions/checkout@v1
-    - name: Update
-      run: rustup update
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      env:
-        ETHSCAN: ${{ secrets.ETHSCAN }}
-      run: cargo test --verbose
+      - uses: actions/checkout@v1
+      - name: Update
+        run: rustup update
+      - name: Build
+        run: cargo build --verbose
+      - name: Run tests
+        env:
+          ETHSCAN: ${{ secrets.ETHSCAN }}
+        run: cargo test --verbose

@@ -7,7 +7,7 @@ description = "Coin Market is a simple library designed to make it easy get mark
 readme = "README.md"
 keywords = ["exchange", "cryptocurrency"]
 categories = ["api-bindings", "cryptography::cryptocurrencies"]
-license = "BSD-3-Clause OR UNLICENSE"
+license = "BSD-3-Clause OR Unlicense"
 repository = "https://github.com/tonytins/coinmarket"
 
 [dependencies]
