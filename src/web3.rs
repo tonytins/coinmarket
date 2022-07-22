@@ -19,9 +19,9 @@ pub struct Web3 {
 }
 
 impl Web3 {
-    pub fn new(provider: String) -> Self {
+    pub fn new<S: Into<String>>(provider: S) -> Self {
         Web3 {
-            provider: format!("https://{}/api?module=", provider),
+            provider: format!("https://{}/api?module=", provider.into()),
         }
     }
 

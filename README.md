@@ -4,9 +4,8 @@ Coin Market is a simple library designed to make it easy get market or account i
 
 ## DEPRECATION NOTICE
 
-- Because of changes made in ShapeShift's organization, I've deprecated the CoinExchange module and will no longer available after 0.3.
-- The Ethereum module will be deprecated in 0.4 and replaced by a generic Web3 API to accommodate newer EVM-based networks.
-- Version 0.5 will be the **final** release.
+- The Ethereum module has been deprecated and will replaced by a generic Web3 API to accommodate newer EVM-based networks.
+- Version 0.4 will be the **final** release.
 
 ## Installation
 
@@ -23,9 +22,10 @@ coinmarket = "0.3"
 use coinmarket::web3::{Ethereum, EthNetworks};
 
 pub fn main() {
-    let network = Web3::new(Web3Provider::MainNet);
-    let balance = network.ether_balance("0x341A3A994A150962F3e82b195873B736dAEb4bB3")
-        .expect("Parsing error");
+    let network = Web3::new("api.etherscan.io");
+    let balance = network
+    .ether_balance("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B")
+    .expect("Parsing error");
 
     println!("{}", balance);
 }
