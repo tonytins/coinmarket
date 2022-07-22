@@ -1,12 +1,5 @@
-/*
- * This project is licensed under the MIT license.
- * See the LICENSE file in the project root for more information.
- */
-use serde::export::fmt::Error;
-use serde::export::Formatter;
 use serde::{Deserialize, Serialize};
 use std::fmt;
-use std::path::Display;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ValidateAddress {

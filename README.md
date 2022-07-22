@@ -1,8 +1,12 @@
 # Coin Market
 
-![Rust](https://github.com/tonytins/coinmarket/workflows/Rust/badge.svg) [![Build Status](https://travis-ci.org/tonytins/coinmarket.svg?branch=master)](https://travis-ci.org/tonytins/coinmarket) [![codecov](https://codecov.io/gh/tonytins/coinmarket/branch/master/graph/badge.svg)](https://codecov.io/gh/tonytins/coinmarket) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
-
 Coin Market is a simple library designed to make it easy get market or account information for cryptocurrencies by interacting with ShapeShift and Etherscan APIs.
+
+## DEPRECATION NOTICE
+
+- Because of changes made in ShapeShift's organization, I've deprecated the CoinExchange module and will no longer available after 0.3.
+- The Ethereum module will be deprecated in 0.4 and replaced by a generic Web3 API to accommodate newer EVM-based networks.
+- Version 0.5 will be the **final** release.
 
 ## Installation
 
@@ -11,36 +15,11 @@ Coin Market is a simple library designed to make it easy get market or account i
 coinmarket = "0.2"
 ```
 
-### Development
+## Examples
 
-```toml
-[dependencies]
-coinmarket = { git = "https://github.com/tonytins/coinmarket" }
-```
-
-## Example
-
-### Exchange information
+### EVM account balance
 
 ```rust
- extern crate coinmarket; // Rust 2015
- use coinmarket::exchange::CoinExchange;
-
- pub fn main() {
-      // Tell the exchange we want to pair against Bitcoin and Monero
-     let exchange = CoinExchange::new("btc", "xmr");
-     // Get the market info of Bitcoin in Monero
-     let market_info = exchange.get_market_info().expect("parsing error");
-
-     // Print the market rate
-     println!("{}", market_info.rate);
-}
-```
-
-### Ethereum account balance
-
-```rust
-extern crate coinmarket; // Rust 2015
 use coinmarket::ethereum::{Ethereum, EthNetworks};
 
 pub fn main() {
@@ -54,22 +33,11 @@ pub fn main() {
 
 ## Requirements
 
-### Prerequisites
-
-- Rust 1.41+
-
-## Authors
-
-- **Anthony Foxclaw** - _Initial work_ - [tonytins](https://github.com/tonytins)
-
-See also the list of [contributors](https://github.com/tonytins/isow/contributors) who participated in this project.
+- Rust 2021 Edition or later
+- IDEs or Editors
+  - [Visual Studio Code](https://code.visualstudio.com/)
+  - [InteliJ IDEA](https://www.jetbrains.com/idea/) or [CLion](https://www.jetbrains.com/clion/)
 
 ## License
 
-`coinmarket` is licensed under either of MIT or the Apache License, Version 2.0.
-
-See the [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) files in this repository for more information.
-
-## Code of Conduct
-
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+This project is dual-licensed under the [BSD-3-Clause](COPYING) or the [UNLICENSE](UNLICENSE).

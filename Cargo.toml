@@ -1,14 +1,13 @@
 [package]
-edition = "2018"
+edition = "2021"
 name = "coinmarket"
-version = "0.2.1"
-authors = ["Anthony Foxclaw"]
+version = "0.2.102"
+authors = ["Tony Bark"]
 description = "Coin Market is a simple library designed to make it easy get market information for cryptocurrencies from exchanges like Shapeshift."
 readme = "README.md"
-homepage = "https://github.com/tonytins/coinmarket"
 keywords = ["exchange", "cryptocurrency"]
 categories = ["api-bindings", "cryptography::cryptocurrencies"]
-license = "MIT OR Apache-2.0"
+license = "BSD-3-Clause OR UNLICENSE"
 repository = "https://github.com/tonytins/coinmarket"
 
 [dependencies]
@@ -17,8 +16,5 @@ serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"]}
 dotenv = "0.15"
 
-[badges]
-appveyor = { repository = "tonytins/coinmarket", branch = "master" }
-travis-ci = { repository = "tonytins/coinmarket", branch = "master" }
-codecov = { repository = "tonytins/coinmarket", branch = "master" }
-maintenance = { status = "passively-maintained" }
+# [badges]
+# maintenance = { status = "passively-maintained" }
