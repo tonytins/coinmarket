@@ -13,6 +13,9 @@ fn get_api_key() -> String {
     return format!("&apikey={}", api_key);
 }
 
+#[deprecated(
+    note = "Please use Web3Scan (https://crates.io/crates/web3scan) instead. No further further updates will be made to this library."
+)]
 pub struct Web3 {
     /// Etherscan-based API address without HTTP included.
     provider: String,

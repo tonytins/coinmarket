@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "coinmarket"
-version = "0.4.100"
+version = "0.4.101"
 authors = ["Tony Bark"]
 description = "Coin Market is a simple library designed to make it easy get market information for cryptocurrencies from exchanges like Shapeshift."
 readme = "README.md"
