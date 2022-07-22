@@ -1,11 +1,11 @@
 [package]
 edition = "2021"
 name = "coinmarket"
-version = "0.2.102"
+version = "0.3.100"
 authors = ["Tony Bark"]
 description = "Coin Market is a simple library designed to make it easy get market information for cryptocurrencies from exchanges like Shapeshift."
 readme = "README.md"
-keywords = ["exchange", "cryptocurrency"]
+keywords = ["evm", "ethereum", "cryptocurrency"]
 categories = ["api-bindings", "cryptography::cryptocurrencies"]
 license = "BSD-3-Clause OR Unlicense"
 repository = "https://github.com/tonytins/coinmarket"
