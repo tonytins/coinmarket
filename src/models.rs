@@ -8,23 +8,6 @@ pub struct ValidateAddress {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct MarketInfo {
-    pub rate: f64,
-    #[serde(rename(deserialize = "minerFee"))]
-    pub miner_fee: f64,
-    pub limit: f64,
-    pub minimum: f64,
-    #[serde(rename(deserialize = "maxLimit"))]
-    pub max_limit: f64,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct ExchangeLimit {
-    pub limit: f64,
-    pub minimum: f64,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
 pub struct Etherscan<T> {
     pub status: String,
     pub message: String,

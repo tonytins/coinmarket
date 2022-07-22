@@ -12,7 +12,7 @@ Coin Market is a simple library designed to make it easy get market or account i
 
 ```toml
 [dependencies]
-coinmarket = "0.2"
+coinmarket = "0.3"
 ```
 
 ## Examples
@@ -20,7 +20,7 @@ coinmarket = "0.2"
 ### EVM account balance
 
 ```rust
-use coinmarket::ethereum::{Ethereum, EthNetworks};
+use coinmarket::web3::{Ethereum, EthNetworks};
 
 pub fn main() {
     let network = Web3::new(Web3Provider::MainNet);
