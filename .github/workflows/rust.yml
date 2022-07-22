@@ -1,6 +1,10 @@
 name: Rust
 
-on: [push]
+on:
+  push:
+    branches: [develop, main, "release/**", "feature/**", "patch/**"]
+  pull_request:
+    branches: [develop, main, "release/**", "feature/**", "patch/**"]
 
 jobs:
   build:
