@@ -21,6 +21,10 @@ pub enum Web3Provider {
     Kovan,
 }
 
+#[deprecated(
+    since = "0.3.100",
+    note = "Please use the Web3 module. This will removed in 0.4.100."
+)]
 pub struct Web3 {
     provider: Web3Provider,
 }

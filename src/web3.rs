@@ -14,12 +14,15 @@ fn get_api_key() -> String {
 }
 
 pub struct Web3 {
+    /// Etherscan-based API address without HTTP included.
     provider: String,
 }
 
 impl Web3 {
-    pub fn new(provider: String) -> Self {
-        Web3 { provider }
+    pub fn new<S: Into<String>>(provider: S) -> Self {
+        Web3 {
+            provider: format!("https://{}/api?module=", provider.into()),
+        }
     }
 
     pub fn get_balance<S: Into<String>>(&self, address: S) -> Result<String, Error>
@@ -28,7 +31,7 @@ impl Web3 {
     {
         let request = format!(
             "{}account&action=balance&address={}&tag=latest{}",
-            self.get_network(self.provider),
+            self.provider,
             address.into(),
             get_api_key().as_str()
         );
@@ -41,7 +44,7 @@ impl Web3 {
     pub fn get_total_supply(&self) -> Result<String, Error> {
         let request = format!(
             "{}stats&action=ethsupply{}",
-            self.get_network(self.provider),
+            self.provider,
             get_api_key().as_str()
         );
         let mut response = reqwest::get(&request)?;
@@ -53,7 +56,7 @@ impl Web3 {
     pub fn get_last_price(&self) -> Result<EthPrice, Error> {
         let request = format!(
             "{}stats&action=ethprice{}",
-            self.get_network(self.provider),
+            self.provider,
             get_api_key().as_str()
         );
         let mut response = reqwest::get(&request)?;
@@ -72,7 +75,7 @@ impl Web3 {
     {
         let request = format!(
             "{}account&action=txlist&address={}&startblock={}&endblock={}&sort=asc{}",
-            self.get_network(self.provider),
+            self.provider,
             address.into(),
             start_block,
             end_block,
