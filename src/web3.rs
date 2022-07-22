@@ -25,6 +25,22 @@ impl Web3 {
         }
     }
 
+    /// Retrieves the client's Ethereum balance as Wei.
+    ///
+    /// ## Example
+    /// ```rust
+    /// use coinmarket::web3::Web3;
+    ///
+    /// fn main() {
+    ///
+    /// let network = Web3::new("api.etherscan.io");
+    /// let balance = network.get_balance("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B")
+    ///                 .expect("parser error");
+    ///
+    /// println!("{}", balance);
+    ///
+    /// }
+    /// ```
     pub fn get_balance<S: Into<String>>(&self, address: S) -> Result<String, Error>
     where
         S: Into<String>,
@@ -41,6 +57,21 @@ impl Web3 {
         Ok(balance.result)
     }
 
+    /// Retrieves the client's Ethereum balance as Wei.
+    ///
+    /// ## Example
+    /// ```rust
+    /// use coinmarket::web3::Web3;
+    ///
+    /// fn main() {
+    ///
+    /// let network = Web3::new("api.etherscan.io");
+    /// let total_supply = network.get_total_supply().expect("parser error");
+    ///
+    /// println!("{}", total_supply);
+    ///
+    /// }
+    /// ```
     pub fn get_total_supply(&self) -> Result<String, Error> {
         let request = format!(
             "{}stats&action=ethsupply{}",
@@ -53,6 +84,21 @@ impl Web3 {
         Ok(taken_supply.result)
     }
 
+    /// Retrieves the client's Ethereum balance as Wei.
+    ///
+    /// ## Example
+    /// ```rust
+    /// use coinmarket::web3::Web3;
+    ///
+    /// fn main() {
+    ///
+    /// let network = Web3::new("api.etherscan.io");
+    /// let total_supply = network.get_total_supply().expect("parser error");
+    ///
+    /// println!("{}", total_supply);
+    ///
+    /// }
+    /// ```
     pub fn get_last_price(&self) -> Result<EthPrice, Error> {
         let request = format!(
             "{}stats&action=ethprice{}",
@@ -64,6 +110,21 @@ impl Web3 {
         Ok(last_price.result)
     }
 
+    /// Retrieves the client's Ethereum balance as Wei.
+    ///
+    /// ## Example
+    /// ```rust
+    /// use coinmarket::web3::Web3;
+    ///
+    /// fn main() {
+    ///
+    /// let network = Web3::new("api.etherscan.io");
+    /// let last_price = network.get_last_price().expect("parser error");
+    ///
+    /// println!("{}", last_price);
+    ///
+    /// }
+    /// ```
     pub fn get_transactions<S: Into<String>>(
         &self,
         address: S,
