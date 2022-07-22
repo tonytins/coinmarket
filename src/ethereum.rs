@@ -60,7 +60,7 @@ impl Web3 {
     /// fn main() {
     ///
     /// let network = Web3::new(Web3Provider::MainNet);
-    /// let balance = network.get_balance("0x9De8991C56F622175274fb358f981AF6F903a799")
+    /// let balance = network.get_balance("0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B")
     ///                 .expect("parser error");
     ///
     /// println!("{}", balance);
